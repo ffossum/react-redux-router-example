@@ -2,11 +2,11 @@
   "name": "site",
   "version": "0.0.0",
   "dependencies": {
-    "jquery": "^2.1.4",
-    "react": "^0.13.3",
-    "bootstrap": "^3.3.5",
     "express": "^4.13.3",
-    "jade": "^1.11.0"
+    "jade": "^1.11.0",
+    "jquery": "^2.1.4",
+    "purecss": "^0.6.0",
+    "react": "^0.13.3"
   },
   "devDependencies": {
     "browserify": "^11.0.1",
@@ -16,7 +16,6 @@
     "gulp-react": "^3.0.1",
     "gulp-sourcemaps": "^1.5.2",
     "reactify": "^1.1.1",
-    "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
   }
 }

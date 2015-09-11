@@ -10,10 +10,13 @@ var reactify = require('reactify');
 
 var paths = {
     scripts: ['./src/**/*.js', './src/**/*.jsx'],
-    less: ['./src/less/style.less']
+    less: ['./src/less/main.less'],
+    lessWatch: ['./src/**/*.less']
 };
 
-gulp.task('less', function () {
+gulp.task('default', ['js', 'css']);
+
+gulp.task('css', function () {
     return gulp.src(paths.less)
         .pipe(sourcemaps.init())
         .pipe(less())
@@ -21,11 +24,11 @@ gulp.task('less', function () {
         .pipe(gulp.dest('./public/css'));
 });
 
-gulp.task('default', function(){
+gulp.task('js', function() {
     var b = browserify({
         debug: true
     });
-    b.transform(reactify); // use the reactify transform
+    b.transform(reactify);
     b.add('./src/main.js');
     return b.bundle()
         .pipe(source('main.js'))
@@ -33,6 +36,6 @@ gulp.task('default', function(){
 });
 
 gulp.task('watch', function() {
-    gulp.watch(paths.scripts, ['default']);
-    gulp.watch(paths.less, ['less']);
+    gulp.watch(paths.scripts, ['js']);
+    gulp.watch(paths.lessWatch, ['css']);
 });
