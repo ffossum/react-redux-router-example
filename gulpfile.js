@@ -1,42 +1,22 @@
 var gulp = require('gulp');
 var less = require('gulp-less');
 var sourcemaps = require('gulp-sourcemaps');
-var react = require('gulp-react');
-
-var browserify = require('browserify');
-var source = require("vinyl-source-stream");
-var reactify = require('reactify');
-var babelify = require("babelify");
 
 var paths = {
-    scripts: ['./src/**/*.js', './src/**/*.jsx'],
     less: ['./src/less/main.less'],
     lessWatch: ['./src/**/*.less']
 };
 
-gulp.task('default', ['js', 'css']);
+gulp.task('default', ['css']);
 
-gulp.task('css', function () {
+gulp.task('css', () => {
     return gulp.src(paths.less)
         .pipe(sourcemaps.init())
         .pipe(less())
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest('./public/css'));
+        .pipe(gulp.dest('./public/assets'));
 });
 
-gulp.task('js', function() {
-    var b = browserify({
-        debug: true
-    });
-    b.transform(reactify);
-    b.transform(babelify);
-    b.add('./src/main.js');
-    return b.bundle()
-        .pipe(source('main.js'))
-        .pipe(gulp.dest('./public/js/'));
-});
-
-gulp.task('watch', function() {
-    gulp.watch(paths.scripts, ['js']);
+gulp.task('watch', () => {
     gulp.watch(paths.lessWatch, ['css']);
 });

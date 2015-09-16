@@ -1,1 +1,0 @@
-var view = require('./jsx/app.jsx');
