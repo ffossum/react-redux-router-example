@@ -6,11 +6,11 @@ var Link = ReactRouter.Link;
 var Menu = React.createClass({
     render: function() {
         return (
-            <nav className="navbar">
-                <Link className="navbar-brand" to="/">Front page</Link>
-                <ul className="nav navbar-nav">
-                    <li className="nav-item">
-                        <Link className="nav-link" key="about" to="/about">About</Link>
+            <nav className="pure-menu pure-menu-horizontal">
+                <Link className="pure-menu-heading pure-menu-link" to="/">Front page</Link>
+                <ul className="pure-menu-list">
+                    <li className="pure-menu-item">
+                        <Link className="pure-menu-link" key="about" to="/about">About</Link>
                     </li>
                 </ul>
             </nav>

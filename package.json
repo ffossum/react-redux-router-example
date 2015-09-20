@@ -9,6 +9,7 @@
     "history": "^1.9.0",
     "jade": "^1.11.0",
     "jquery": "^2.1.4",
+    "purecss": "^0.6.0",
     "react": "^0.13.3",
     "react-router": "1.0.0-rc1"
   },

@@ -6,7 +6,7 @@ var App = React.createClass({
         return (
             <div>
                 <Menu />
-                <div className="container-fluid">
+                <div className="content">
                     {this.props.children}
                 </div>
             </div>
