@@ -1,7 +1,7 @@
-var React = require('react');
+import React from 'react';
 
-var About = React.createClass({
-    render: function() {
+class About extends React.Component {
+    render() {
         return (
             <div>
                 <h1>About</h1>
@@ -9,6 +9,6 @@ var About = React.createClass({
             </div>
         )
     }
-});
+}
 
-module.exports = About;
+export default About;

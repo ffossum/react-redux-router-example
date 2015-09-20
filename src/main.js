@@ -1,19 +1,17 @@
-var React = require('react');
-var App = require('./components/App');
-var FrontPage = require('./components/FrontPage');
-var Bmi = require('./components/bmi/Bmi');
-var BmiReactive = require('./components/bmi/BmiReactive');
-var Login = require('./components/Login');
-var About = require('./components/About');
-var ReactRedux = require('react-redux');
-var Provider = ReactRedux.Provider;
-var store = require('./store/store');
+import React from 'react';
+import App from './components/App';
+import FrontPage from './components/FrontPage';
+import Bmi from './components/bmi/Bmi';
+import BmiReactive from './components/bmi/BmiReactive';
+import Login from './components/Login';
+import About from './components/About';
+import { Provider } from 'react-redux';
+import { Router, Route, IndexRoute } from 'react-router';
 
-var ReactRouter = require('react-router');
-var Router = ReactRouter.Router;
-var Route = ReactRouter.Route;
-var IndexRoute = ReactRouter.IndexRoute;
-var history = require('history/lib/createBrowserHistory')();
+import store from './store/store';
+import createBrowserHistory from 'history/lib/createBrowserHistory';
+
+const history = createBrowserHistory();
 
 React.render((
     <Provider store={store}>

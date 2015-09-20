@@ -1,6 +1,6 @@
-var React = require('react');
+import React from 'react';
 
-var Login = React.createClass({
+class Login extends React.Component {
     render() {
         return (
             <form className="pure-form pure-form-aligned">
@@ -20,6 +20,6 @@ var Login = React.createClass({
             </form>
         )
     }
-});
+}
 
-module.exports = Login;
+export default Login;

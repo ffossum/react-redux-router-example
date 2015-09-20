@@ -1,8 +1,8 @@
-var React = require('react');
-var Menu = require('./Menu');
+import React from 'react';
+import Menu from './Menu';
 
-var App = React.createClass({
-    render: function() {
+class App extends React.Component {
+    render() {
         return (
             <div>
                 <Menu />
@@ -12,6 +12,6 @@ var App = React.createClass({
             </div>
         )
     }
-});
+}
 
-module.exports = App;
+export default App;

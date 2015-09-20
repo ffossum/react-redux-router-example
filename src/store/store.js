@@ -1,7 +1,7 @@
 import { createStore } from 'redux';
 import Immutable from 'immutable';
 
-let initialState = {
+const initialState = {
     bmi: {}
 };
 
@@ -20,4 +20,4 @@ function bmi(state = initialState, action = '') {
     return state.toJS();
 }
 
-module.exports = createStore(bmi);
+export default createStore(bmi);

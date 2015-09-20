@@ -1,7 +1,7 @@
-var React = require('react');
+import React from 'react';
 
-var FrontPage = React.createClass({
-    render: function() {
+class FrontPage extends React.Component {
+    render() {
         return (
             <div>
                 <h1>Welcome</h1>
@@ -9,6 +9,6 @@ var FrontPage = React.createClass({
             </div>
         )
     }
-});
+}
 
-module.exports = FrontPage;
+export default FrontPage;

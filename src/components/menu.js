@@ -1,10 +1,8 @@
-var React = require('react');
+import React from 'react';
+import { Link } from 'react-router';
 
-var ReactRouter = require('react-router');
-var Link = ReactRouter.Link;
-
-var Menu = React.createClass({
-    render: function() {
+class Menu extends React.Component {
+    render() {
         return (
             <nav className="pure-menu pure-menu-horizontal">
                 <Link className="pure-menu-heading pure-menu-link" to="/">Front page</Link>
@@ -25,6 +23,6 @@ var Menu = React.createClass({
             </nav>
         )
     }
-});
+}
 
-module.exports = Menu;
+export default Menu;
