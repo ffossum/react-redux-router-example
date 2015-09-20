@@ -1,19 +1,19 @@
-let React = require('react');
-let connect = require('react-redux').connect;
-let bindActionCreators = require('redux').bindActionCreators;
-let bmiActions = require('./../../actions/bmi');
+import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as bmiActions from '../../actions/bmi';
 
-let Bmi = React.createClass({
+class Bmi extends React.Component {
     handleChange(ref) {
         const value = React.findDOMNode(this.refs[ref]).value.trim();
         const { setBmiProperty } = this.props;
 
         setBmiProperty(ref, value);
-    },
+    }
     render() {
         const kg = parseInt(this.props.weight);
         const m = parseInt(this.props.height) / 100;
-        const bmi = (kg / (m * m)) || '';
+        const bmi = (kg / (m * m));
 
         const bmiElement = bmi ? <div>BMI: {bmi}</div> : undefined;
 
@@ -32,9 +32,9 @@ let Bmi = React.createClass({
             </form>
         )
     }
-});
+}
 
-module.exports = connect(
+export default connect(
     (state) => { return state.bmi; },
     (dispatch) => { return bindActionCreators(bmiActions, dispatch); }
 )(Bmi);
