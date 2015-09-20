@@ -1,5 +1,5 @@
 var React = require('react');
-var Menu = require('./menu.jsx');
+var Menu = require('./menu');
 
 var App = React.createClass({
     render: function() {

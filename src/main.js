@@ -1,10 +1,10 @@
 var React = require('react');
-var App = require('./jsx/app.jsx');
-var FrontPage = require('./jsx/frontPage.jsx');
-var Bmi = require('./jsx/bmi.jsx');
-var BmiReactive = require('./jsx/bmiReactive.jsx');
-var Login = require('./jsx/login.jsx');
-var About = require('./jsx/about.jsx');
+var App = require('./jsx/app');
+var FrontPage = require('./jsx/frontPage');
+var Bmi = require('./jsx/bmi');
+var BmiReactive = require('./jsx/bmiReactive');
+var Login = require('./jsx/login');
+var About = require('./jsx/about');
 
 var ReactRouter = require('react-router');
 var Router = ReactRouter.Router;
