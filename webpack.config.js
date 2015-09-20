@@ -1,5 +1,10 @@
+'use strict';
+let webpack = require('webpack');
+
 module.exports = {
     entry: [
+        'webpack-dev-server/client?http://localhost:8080',
+        'webpack/hot/only-dev-server',
         './src/main.jsx'
     ],
     output: {
@@ -7,6 +12,9 @@ module.exports = {
         publicPath: 'http://localhost:8080/assets/',
         filename: 'bundle.js'
     },
+    plugins: [
+        new webpack.HotModuleReplacementPlugin()
+    ],
     module: {
         loaders: [
             {
