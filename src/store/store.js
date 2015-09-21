@@ -1,23 +1,18 @@
 import { createStore } from 'redux';
-import Immutable from 'immutable';
+import reducer from '../reducers';
 
 const initialState = {
     bmi: {}
 };
 
-function bmi(state = initialState, action = '') {
-    state = Immutable.fromJS(state);
+const store = createStore(reducer, initialState);
 
-    switch (action.type) {
-        case 'bmi-reset':
-            return state.set('bmi', action.value).toJS();
-        case 'bmi-weight':
-            return state.setIn(['bmi', 'weight'], action.value).toJS();
-        case 'bmi-height':
-            return state.setIn(['bmi', 'height'], action.value).toJS();
-    }
-
-    return state.toJS();
+if (module.hot) {
+    // Enable Webpack hot module replacement for reducers
+    module.hot.accept('../reducers', () => {
+        const nextReducer = require('../reducers');
+        store.replaceReducer(nextReducer);
+    });
 }
 
-export default createStore(bmi);
+export default store;
