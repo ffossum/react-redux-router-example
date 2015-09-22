@@ -4,8 +4,15 @@ import { bindActionCreators } from 'redux';
 import * as bmiActions from '../../actions/bmi';
 
 class Bmi extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
+
+        this.state = {};
+        if (this.props) {
+            this.state.height = this.props.height;
+            this.state.weight = this.props.weight;
+        }
+
         this.handleSubmit = this.handleSubmit.bind(this);
     }
     handleSubmit(e) {
@@ -15,6 +22,11 @@ class Bmi extends React.Component {
 
         const { resetBmi } = this.props;
         resetBmi(height, weight);
+    }
+    handleChange(ref, e) {
+        const newState = {};
+        newState[ref] = e.target.value;
+        this.setState(newState);
     }
     render() {
         const kg = parseInt(this.props.weight);
@@ -27,12 +39,18 @@ class Bmi extends React.Component {
             <form className="pure-form pure-form-stacked">
                 <fieldset>
                     <label htmlFor="height">Height (cm)</label>
-                    <input id="height" type="text" ref="height" defaultValue={this.props.height}
-                        placeholder="Height (cm)" />
+                    <input id="height" type="text" ref="height"
+                        value={this.state.height}
+                        defaultValue={this.props.height}
+                        placeholder="Height (cm)"
+                        onChange={this.handleChange.bind(this, 'height')} />
 
                     <label htmlFor="weight">Weight (kg)</label>
-                    <input id="weight" type="text" ref="weight" defaultValue={this.props.weight}
-                        placeholder="Weight (kg)" />
+                    <input id="weight" type="text" ref="weight"
+                        value={this.state.weight}
+                        defaultValue={this.props.weight}
+                        placeholder="Weight (kg)"
+                        onChange={this.handleChange.bind(this, 'weight')} />
 
                     <button className="pure-button" onClick={this.handleSubmit}>Submit</button>
                 </fieldset>

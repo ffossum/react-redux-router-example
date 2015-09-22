@@ -4,7 +4,10 @@ import reducer from '../reducers';
 import { devTools, persistState } from 'redux-devtools';
 
 const initialState = {
-    bmi: {}
+    bmi: {
+        height: '188',
+        weight: '90'
+    }
 };
 
 const finalCreateStore = compose(

@@ -4,8 +4,8 @@ import { bindActionCreators } from 'redux';
 import * as bmiActions from '../../actions/bmi';
 
 class Bmi extends React.Component {
-    handleChange(ref) {
-        const value = React.findDOMNode(this.refs[ref]).value.trim();
+    handleChange(ref, e) {
+        const value = e.target.value.trim();
         const { setBmiProperty } = this.props;
 
         setBmiProperty(ref, value);
@@ -21,12 +21,16 @@ class Bmi extends React.Component {
             <form className="pure-form pure-form-stacked">
                 <fieldset>
                     <label htmlFor="height">Height (cm)</label>
-                    <input id="height" type="text" ref="height" value={this.props.height}
-                           placeholder="Height (cm)" onChange={this.handleChange.bind(this, 'height')} />
+                    <input id="height" type="text" ref="height"
+                        value={this.props.height}
+                        placeholder="Height (cm)"
+                        onChange={this.handleChange.bind(this, 'height')} />
 
                     <label htmlFor="weight">Weight (kg)</label>
-                    <input id="weight" type="text" ref="weight" value={this.props.weight}
-                           placeholder="Weight (kg)" onChange={this.handleChange.bind(this, 'weight')} />
+                    <input id="weight" type="text" ref="weight"
+                        value={this.props.weight}
+                        placeholder="Weight (kg)"
+                        onChange={this.handleChange.bind(this, 'weight')} />
                 </fieldset>
                 {bmiElement}
             </form>
