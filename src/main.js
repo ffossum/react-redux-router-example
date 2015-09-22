@@ -8,23 +8,30 @@ import About from './components/About';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute } from 'react-router';
 
+import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
+
 import store from './store/store';
 import createBrowserHistory from 'history/lib/createBrowserHistory';
 
 const history = createBrowserHistory();
 
 React.render((
-    <Provider store={store}>
-        {() => (
-            <Router history={history}>
-                <Route path="/" component={App}>
-                    <IndexRoute component={FrontPage} />
-                    <Route path="login" component={Login} />
-                    <Route path="about" component={About} />
-                    <Route path="bmi" component={Bmi} />
-                    <Route path="bmi-reactive" component={BmiReactive} />
-                </Route>
-            </Router>
-        )}
-    </Provider>
+    <div>
+        <Provider store={store}>
+            {() => (
+                <Router history={history}>
+                    <Route path="/" component={App}>
+                        <IndexRoute component={FrontPage} />
+                        <Route path="login" component={Login} />
+                        <Route path="about" component={About} />
+                        <Route path="bmi" component={Bmi} />
+                        <Route path="bmi-reactive" component={BmiReactive} />
+                    </Route>
+                </Router>
+            )}
+        </Provider>
+        <DebugPanel top right bottom>
+            <DevTools store={store} monitor={LogMonitor} />
+        </DebugPanel>
+    </div>
 ), document.body);

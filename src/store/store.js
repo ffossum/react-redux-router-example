@@ -1,11 +1,18 @@
-import { createStore } from 'redux';
+import { compose, createStore } from 'redux';
 import reducer from '../reducers';
+
+import { devTools, persistState } from 'redux-devtools';
 
 const initialState = {
     bmi: {}
 };
 
-const store = createStore(reducer, initialState);
+const finalCreateStore = compose(
+    devTools(),
+    persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))
+)(createStore);
+
+const store = finalCreateStore(reducer, initialState);
 
 if (module.hot) {
     // Enable Webpack hot module replacement for reducers
