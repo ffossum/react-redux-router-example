@@ -13,6 +13,8 @@ import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
 import store from './store/store';
 import createBrowserHistory from 'history/lib/createBrowserHistory';
 
+import './stylesheets/main.scss';
+
 const history = createBrowserHistory();
 
 React.render((

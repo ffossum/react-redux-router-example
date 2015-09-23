@@ -22,6 +22,11 @@ module.exports = {
                 test: /\.jsx?$/,
                 exclude: /(node_modules|bower_components)/,
                 loaders: ['react-hot', 'babel']
+            },
+            {
+                test: /\.scss$/,
+                exclude: /(node_modules|bower_components)/,
+                loader: 'style!css!sass?sourceMap'
             }
         ]
     }
