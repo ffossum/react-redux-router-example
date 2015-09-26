@@ -17,8 +17,8 @@ class Bmi extends React.Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-    const height = this.refs.height.getDOMNode().value.trim();
-    const weight = this.refs.weight.getDOMNode().value.trim();
+    const height = this.refs.height.value.trim();
+    const weight = this.refs.weight.value.trim();
 
     const { resetBmi } = this.props;
     resetBmi(height, weight);

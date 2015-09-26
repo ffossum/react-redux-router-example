@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import App from './components/App';
 import FrontPage from './components/FrontPage';
 import Bmi from './components/bmi/Bmi';
@@ -17,10 +18,9 @@ import './stylesheets/main.scss';
 
 const history = createBrowserHistory();
 
-React.render((
+ReactDOM.render((
   <div>
     <Provider store={store}>
-      {() => (
         <Router history={history}>
           <Route path="/" component={App}>
             <IndexRoute component={FrontPage} />
@@ -30,10 +30,9 @@ React.render((
             <Route path="bmi-reactive" component={BmiReactive} />
           </Route>
         </Router>
-      )}
     </Provider>
     <DebugPanel top right bottom>
       <DevTools store={store} monitor={LogMonitor} />
     </DebugPanel>
   </div>
-), document.body);
+), document.getElementById('root'));
