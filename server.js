@@ -1,17 +1,16 @@
-'use strict';
-const express = require('express');
-
-const app = express();
+var express = require('express');
+var app = express();
 
 app.use(express.static('public'));
 app.get('*', (req, res) => {
   res.render('index.jade');
 });
 
-app.listen(3000, 'localhost', (err) => {
+app.listen(8080, 'localhost', err => {
   if (err) {
     console.log(err);
+    return;
   }
 
-  console.log('Listening at localhost:3000');
+  console.log('Listening at localhost:8080');
 });
