@@ -33,7 +33,7 @@ class Bmi extends React.Component {
     const m = parseInt(this.props.height) / 100;
     const bmi = (kg / (m * m));
 
-    const bmiElement = bmi ? (<div>BMI: {bmi}</div>) : undefined;
+    const bmiElement = bmi ? <div>BMI: {bmi}</div> : undefined;
 
     return (
       <form className="pure-form pure-form-stacked">
