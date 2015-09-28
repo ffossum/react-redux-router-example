@@ -10,14 +10,19 @@ class Menu extends React.Component {
       {href: '/login', text: 'Log in'}
     ];
 
+    const { activePath } = this.props;
+    const menuItemClass = "pure-menu-item";
+    const selectedItemClass = menuItemClass + " pure-menu-selected";
+
     return (
       <nav className="pure-menu pure-menu-horizontal">
-        <Link className="pure-menu-heading pure-menu-link" to="/">Front page</Link>
         <ul className="pure-menu-list">
+          <Link className="pure-menu-heading pure-menu-link" to="/">Front page</Link>
           {links.map(link => {
+            const selected = activePath === link.href;
             return (
-              <li className="pure-menu-item">
-                <Link className="pure-menu-link" key={link.href} to={link.href}>{link.text}</Link>
+              <li className={selected ? selectedItemClass : menuItemClass} key={link.href}>
+                <Link className="pure-menu-link" to={link.href}>{link.text}</Link>
               </li>
             );
           })}

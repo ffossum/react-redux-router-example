@@ -3,9 +3,11 @@ import Menu from './Menu';
 
 class App extends React.Component {
   render() {
+    const { pathname } = this.props.location;
+
     return (
       <div>
-        <Menu />
+        <Menu activePath={pathname} />
         <div className="content">
           {this.props.children}
         </div>
