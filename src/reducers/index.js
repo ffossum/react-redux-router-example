@@ -1,18 +1,10 @@
-import Immutable from 'immutable';
+import { combineReducers } from 'redux';
+import { routerStateReducer } from 'redux-router';
+import bmiReducer from './bmiReducer';
 
-function bmi(state, action) {
-  state = Immutable.fromJS(state);
+const reducer = combineReducers({
+  router: routerStateReducer,
+  bmi: bmiReducer
+});
 
-  switch (action.type) {
-    case 'bmi-reset':
-      return state.set('bmi', action.payload).toJS();
-    case 'bmi-weight':
-      return state.setIn(['bmi', 'weight'], action.payload).toJS();
-    case 'bmi-height':
-      return state.setIn(['bmi', 'height'], action.payload).toJS();
-  }
-
-  return state.toJS();
-}
-
-export default bmi;
+export default reducer;

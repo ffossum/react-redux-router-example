@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as bmiActions from '../../actions/bmi';
+import * as bmiActions from '../../actions/bmiActions';
 
 class Bmi extends React.Component {
   constructor(props) {

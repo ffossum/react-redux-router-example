@@ -7,29 +7,27 @@ import BmiReactive from './components/bmi/BmiReactive';
 import Login from './components/Login';
 import About from './components/About';
 import { Provider } from 'react-redux';
-import { Router, Route, IndexRoute } from 'react-router';
+import { Route, IndexRoute } from 'react-router';
+import { ReduxRouter } from 'redux-router';
 
 import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
 
 import store from './store/store';
-import createBrowserHistory from 'history/lib/createBrowserHistory';
 
 import './stylesheets/main.scss';
-
-const history = createBrowserHistory();
 
 ReactDOM.render((
   <div>
     <Provider store={store}>
-        <Router history={history}>
-          <Route path="/" component={App}>
-            <IndexRoute component={FrontPage} />
-            <Route path="login" component={Login} />
-            <Route path="about" component={About} />
-            <Route path="bmi" component={Bmi} />
-            <Route path="bmi-reactive" component={BmiReactive} />
-          </Route>
-        </Router>
+      <ReduxRouter>
+        <Route path="/" component={App}>
+          <IndexRoute component={FrontPage} />
+          <Route path="login" component={Login} />
+          <Route path="about" component={About} />
+          <Route path="bmi" component={Bmi} />
+          <Route path="bmi-reactive" component={BmiReactive} />
+        </Route>
+      </ReduxRouter>
     </Provider>
     <DebugPanel top right bottom>
       <DevTools store={store} monitor={LogMonitor} />
