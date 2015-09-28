@@ -7,7 +7,7 @@ class About extends React.Component {
         <h1>About</h1>
         <p>Work in progress</p>
       </div>
-    )
+    );
   }
 }
 

@@ -57,7 +57,7 @@ class Bmi extends React.Component {
 
         {bmiElement}
       </form>
-    )
+    );
   }
 }
 

@@ -7,7 +7,7 @@ class FrontPage extends React.Component {
         <h1>Welcome</h1>
         <p>Good luck, have fun!</p>
       </div>
-    )
+    );
   }
 }
 

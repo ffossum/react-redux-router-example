@@ -19,11 +19,11 @@ class Menu extends React.Component {
               <li className="pure-menu-item">
                 <Link className="pure-menu-link" key={link.href} to={link.href}>{link.text}</Link>
               </li>
-            )
+            );
           })}
         </ul>
       </nav>
-    )
+    );
   }
 }
 
