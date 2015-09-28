@@ -8,8 +8,8 @@ module.exports = {
     './src/main.js'
   ],
   output: {
-    path: path.join(__dirname, 'public/assets'),
-    publicPath: 'http://localhost:3000/assets',
+    path: path.join(__dirname, 'public/static'),
+    publicPath: 'http://localhost:3000/static',
     filename: 'bundle.js'
   },
   plugins: [
