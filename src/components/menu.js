@@ -11,8 +11,8 @@ class Menu extends React.Component {
     ];
 
     const { activePath } = this.props;
-    const menuItemClass = "pure-menu-item";
-    const selectedItemClass = menuItemClass + " pure-menu-selected";
+    const menuItemClass = 'pure-menu-item';
+    const selectedItemClass = menuItemClass + ' pure-menu-selected';
 
     return (
       <nav className="pure-menu pure-menu-horizontal">
