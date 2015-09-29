@@ -1,8 +1,12 @@
 doctype html
 html
   head
-    meta(charset="utf-8")
+    meta(charset='utf-8')
     title Fredrik's Site
   body
     #root
-    script(src='http://localhost:3000/static/bundle.js')
+
+    if env === 'production'
+      script(src='/static/bundle.js')
+    else
+      script(src='http://localhost:3000/static/bundle.js')

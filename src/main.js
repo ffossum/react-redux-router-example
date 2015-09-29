@@ -9,9 +9,6 @@ import About from './components/About';
 import { Provider } from 'react-redux';
 import { Route, IndexRoute } from 'react-router';
 import { ReduxRouter } from 'redux-router';
-
-import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
-
 import store from './store/store';
 
 import './stylesheets/main.scss';
@@ -29,8 +26,17 @@ ReactDOM.render((
         </Route>
       </ReduxRouter>
     </Provider>
-    <DebugPanel top right bottom>
-      <DevTools store={store} monitor={LogMonitor} />
-    </DebugPanel>
+    {
+      () => {
+        if (__DEVELOPMENT__) {
+          const { DevTools, DebugPanel, LogMonitor } = require('redux-devtools/lib/react');
+          return (
+            <DebugPanel top right bottom>
+              <DevTools store={store} monitor={LogMonitor} />
+            </DebugPanel>
+          );
+        }
+      }()
+    }
   </div>
 ), document.getElementById('root'));
