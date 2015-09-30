@@ -1,6 +1,5 @@
 import { compose, createStore } from 'redux';
 import reducer from '../reducers';
-import { devTools, persistState } from 'redux-devtools';
 import createHistory from 'history/lib/createBrowserHistory';
 import { reduxReactRouter } from 'redux-router';
 
@@ -11,13 +10,21 @@ const initialState = {
   }
 };
 
-const finalCreateStore = compose(
+let storeEnhancers = [
   reduxReactRouter({
     createHistory
-  }),
-  devTools(),
-  persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))
-)(createStore);
+  })
+];
+
+if (__DEVELOPMENT__) {
+  const { devTools, persistState } = require('redux-devtools');
+  storeEnhancers = [...storeEnhancers,
+    devTools(),
+    persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))
+  ];
+}
+
+const finalCreateStore = compose(...storeEnhancers)(createStore);
 
 const store = finalCreateStore(reducer, initialState);
 
