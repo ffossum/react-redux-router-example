@@ -12,7 +12,7 @@
     "semi": [2, "always"],
     "quotes": [2, "single"],
     "strict": [2, "never"],
-    "no-unused-vars": [2, {"vars": "all", "args": "after-used"}],
+    "no-unused-vars": [2, {"vars": "all", "args": "none"}],
     "react/jsx-uses-react": 2,
     "react/jsx-uses-vars": 2,
     "react/react-in-jsx-scope": 2

@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
 import FrontPage from './components/FrontPage';
+import Chat from './components/Chat';
 import Bmi from './components/bmi/Bmi';
 import BmiReactive from './components/bmi/BmiReactive';
 import Login from './components/Login';
@@ -19,6 +20,7 @@ ReactDOM.render((
       <ReduxRouter>
         <Route path="/" component={App}>
           <IndexRoute component={FrontPage} />
+          <Route path="chat" component={Chat} />
           <Route path="login" component={Login} />
           <Route path="about" component={About} />
           <Route path="bmi" component={Bmi} />
