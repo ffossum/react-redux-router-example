@@ -1,0 +1,28 @@
+.chat-container {
+  height: 20em;
+  width: 30em;
+}
+
+.chat-messages {
+  overflow-y: scroll;
+  float: left;
+  height: calc(100% - 3em);
+  width: 80%;
+
+  .chat-info-message {
+    color: gray
+  }
+}
+
+.chat-users {
+  float: left;
+  width: 20%;
+}
+
+.chat-controls {
+  width: 80%;
+  float: left;
+  input{
+    width: 100%;
+  }
+}

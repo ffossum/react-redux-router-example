@@ -15,8 +15,21 @@ class Chat extends React.Component {
 
     this.enterChat = this.enterChat.bind(this);
     this.usernameChanged = this.usernameChanged.bind(this);
-    this.addMessage = this.addMessage.bind(this);
+    this.sendMessage = this.sendMessage.bind(this);
     this.messageChanged = this.messageChanged.bind(this);
+  }
+  componentWillUpdate() {
+    const chatMessages = this.refs.chatMessages;
+    if (chatMessages) {
+      this.scrollHeight = chatMessages.scrollHeight;
+      this.scrollTop = chatMessages.scrollTop;
+    }
+  }
+  componentDidUpdate() {
+    const chatMessages = this.refs.chatMessages;
+    if (chatMessages) {
+      chatMessages.scrollTop = this.scrollTop + (chatMessages.scrollHeight - this.scrollHeight);
+    }
   }
   enterChat(e) {
     e.preventDefault();
@@ -30,7 +43,7 @@ class Chat extends React.Component {
       username: e.target.value
     });
   }
-  addMessage(e) {
+  sendMessage(e) {
     e.preventDefault();
     const message = this.state.message;
     this.state.message = '';
@@ -44,9 +57,6 @@ class Chat extends React.Component {
     });
   }
   render() {
-    if (this.props.waitingForResponse) {
-      return <div>Entering ...</div>;
-    }
 
     if (!this.props.username) {
       return (
@@ -60,29 +70,21 @@ class Chat extends React.Component {
                 onChange={this.usernameChanged} />
             </div>
             <div className="pure-controls">
-              <button className="pure-button">Enter chat</button>
+              <button className="pure-button">Join chat</button>
             </div>
           </fieldset>
         </form>
       );
     }
 
+    if (this.props.waitingForResponse) {
+      return <div>Entering ...</div>;
+    }
+
     const { users, messages } = this.props;
     return (
-      <div>
-        <h1>Chat</h1>
-        <ul className="chat-users">
-          {
-            Object.keys(users).map(user => {
-              return (
-                <li key={user}>
-                  {user}
-                </li>
-              );
-            })
-          }
-        </ul>
-        <div className="chat-messages">
+      <div className="chat-container">
+        <div className="chat-messages" ref="chatMessages">
           {
             messages.map((msg, index) => {
               if (msg.user) {
@@ -99,23 +101,29 @@ class Chat extends React.Component {
                   </div>
                 );
               }
-
             })
           }
         </div>
-        <form onSubmit={this.addMessage} className="pure-form">
+        <div className="chat-users">
+          <ul>
+            {
+              Object.keys(users).map(user => {
+                return (
+                  <li key={user}>
+                    {user}
+                  </li>
+                );
+              })
+            }
+          </ul>
+        </div>
+        <form onSubmit={this.sendMessage} className="pure-form chat-controls">
           <fieldset>
-            <div className="pure-control-group">
               <input type="text" placeholder="Say something..."
                 value={this.state.message}
                 onChange={this.messageChanged} />
-            </div>
-            <div className="pure-controls">
-              <button className="pure-button">Send</button>
-            </div>
           </fieldset>
         </form>
-
       </div>
     );
   }

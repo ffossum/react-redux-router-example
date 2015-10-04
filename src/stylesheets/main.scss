@@ -1,9 +1,20 @@
 @import '~purecss/build/pure';
+@import './chat';
 
-.content {
-  margin: 2em;
+html,
+body,
+#root,
+#root > div,
+#root > div > div {
+  height: 100%
 }
 
-.chat-info-message {
-  color: gray
+.main-container {
+  display: flex;
+  flex-flow: column;
+}
+
+.content {
+  height: 100%;
+  padding: 2em;
 }
