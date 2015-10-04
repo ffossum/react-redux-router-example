@@ -1,12 +1,10 @@
 import { compose, createStore, applyMiddleware } from 'redux';
-import io from 'socket.io-client';
 import reducer from '../reducers';
 import createHistory from 'history/lib/createBrowserHistory';
 import { reduxReactRouter } from 'redux-router';
 import chat from './chatMiddleware';
-import { login, newMessage, userJoined, userLeft } from '../actions/chatActions';
-
-const socket = io(`${location.protocol}//${location.hostname}:8080`);
+import * as chatListeners from './chatListeners';
+import socket from './socket';
 
 const initialState = {
   bmi: {
@@ -50,18 +48,4 @@ if (module.hot) {
   });
 }
 
-socket.on('login', data => {
-  store.dispatch(login(data));
-});
-
-socket.on('new message', data => {
-  store.dispatch(newMessage(data));
-});
-
-socket.on('user joined', data => {
-  store.dispatch(userJoined(data.username));
-});
-
-socket.on('user left', data => {
-  store.dispatch(userLeft(data.username));
-});
+chatListeners.addAll(store);
