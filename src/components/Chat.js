@@ -7,6 +7,8 @@ import ChatMessages from './ChatMessages';
 import ChatUsers from './ChatUsers';
 import ChatControls from './ChatControls';
 
+import '../stylesheets/chat.scss';
+
 class Chat extends React.Component {
   constructor(props) {
     super(props);
