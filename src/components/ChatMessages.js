@@ -17,25 +17,27 @@ class ChatMessages extends React.Component {
   render() {
     const { messages } = this.props;
     return (
-      <div className="chat-messages" ref="chatMessages">
-        {
-          messages.map((msg, index) => {
-            if (msg.user) {
-              return (
-                <div key={index}>
-                  <span>{msg.user}: </span>
-                  <span>{msg.text}</span>
-                </div>
-              );
-            } else {
-              return (
-                <div key={index} className="chat-info-message">
-                  {msg.text}
-                </div>
-              );
-            }
-          })
-        }
+      <div className="chat-messages-container">
+        <div className="chat-messages" ref="chatMessages">
+          {
+            messages.map((msg, index) => {
+              if (msg.user) {
+                return (
+                  <div key={index} className="chat-message">
+                    <span>{msg.user}: </span>
+                    <span>{msg.text}</span>
+                  </div>
+                );
+              } else {
+                return (
+                  <div key={index} className="chat-info-message">
+                    {msg.text}
+                  </div>
+                );
+              }
+            })
+          }
+        </div>
       </div>
     );
   }
