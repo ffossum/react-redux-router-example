@@ -1,7 +1,7 @@
 {
-  "name": "react-redux-router-boilerplate",
+  "name": "react-redux-router-example",
   "version": "0.0.0",
-  "description": "Boilerplate for SPA using react with redux and redux-router",
+  "description": "Example application using react with redux and redux-router",
   "license": "MIT",
   "scripts": {
     "prod": "webpack -p --config webpack.production.config.js",
