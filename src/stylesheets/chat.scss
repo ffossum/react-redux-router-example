@@ -1,36 +1,36 @@
 .chat-container {
   height: 20em;
   width: 30em;
-}
 
-.chat-messages-container {
-  float: left;
-  position: relative;
-  height: calc(100% - 3em);
-  width: 80%;
+  .chat-messages-container {
+    float: left;
+    position: relative;
+    height: calc(100% - 3em);
+    width: 80%;
 
-  .chat-messages {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    max-height: 100%;
-    overflow-y: auto;
+    .chat-messages {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      max-height: 100%;
+      overflow-y: auto;
 
-    .chat-info-message {
-      color: gray
+      .chat-info-message {
+        color: gray
+      }
     }
   }
-}
 
-.chat-users {
-  float: left;
-  width: 20%;
-}
+  .chat-users {
+    float: left;
+    width: 20%;
+  }
 
-.chat-controls {
-  width: 80%;
-  float: left;
-  input{
-    width: 100%;
+  .chat-controls {
+    width: 80%;
+    float: left;
+    input{
+      width: 100%;
+    }
   }
 }
