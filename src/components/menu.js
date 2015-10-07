@@ -7,8 +7,7 @@ class Menu extends React.Component {
       {href: '/chat', text: 'Chat'},
       {href: '/bmi', text: 'BMI'},
       {href: '/bmi-reactive', text: 'BMI (Reactive)'},
-      {href: '/about', text: 'About'},
-      {href: '/login', text: 'Log in'}
+      {href: '/about', text: 'About'}
     ];
 
     const { activePath } = this.props;

@@ -5,7 +5,6 @@ import FrontPage from './components/FrontPage';
 import Chat from './components/Chat';
 import Bmi from './components/bmi/Bmi';
 import BmiReactive from './components/bmi/BmiReactive';
-import Login from './components/Login';
 import About from './components/About';
 import { Provider } from 'react-redux';
 import { Route, IndexRoute } from 'react-router';
@@ -21,7 +20,6 @@ ReactDOM.render((
         <Route path="/" component={App}>
           <IndexRoute component={FrontPage} />
           <Route path="chat" component={Chat} />
-          <Route path="login" component={Login} />
           <Route path="about" component={About} />
           <Route path="bmi" component={Bmi} />
           <Route path="bmi-reactive" component={BmiReactive} />
