@@ -2,6 +2,10 @@
   "name": "react-redux-router-example",
   "version": "0.0.0",
   "description": "Example application using react with redux and redux-router",
+  "repository" : {
+    "type" : "git"
+  , "url" : "https://github.com/ffossum/react-redux-router-example"
+  },
   "license": "MIT",
   "scripts": {
     "prod": "webpack -p --config webpack.production.config.js",
