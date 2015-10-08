@@ -7,10 +7,6 @@ import * as chatListeners from './chatListeners';
 import socket from './socket';
 
 const initialState = {
-  bmi: {
-    height: '188',
-    weight: '90'
-  },
   chat: {
     users: {},
     messages: [],

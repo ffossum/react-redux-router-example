@@ -6,8 +6,6 @@ class Menu extends React.Component {
     const links = [
       {href: '/chat', text: 'Chat'},
       {href: '/todos', text: 'Todos'},
-      {href: '/bmi', text: 'BMI'},
-      {href: '/bmi-reactive', text: 'BMI (Reactive)'},
       {href: '/about', text: 'About'}
     ];
 
