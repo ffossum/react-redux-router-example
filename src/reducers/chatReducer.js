@@ -1,23 +1,23 @@
 import Immutable from 'immutable';
-import * as actions from '../actions/chatActions';
+import * as types from '../constants/ActionTypes';
 
 function chat(state = {}, action) {
   const immutableState = Immutable.fromJS(state);
 
   switch (action.type) {
-    case actions.JOIN_CHAT_REQUEST: {
+    case types.JOIN_CHAT_REQUEST: {
       return immutableState
         .setIn(['username'], action.payload)
         .setIn(['waitingForResponse'], true)
         .toJS();
     }
-    case actions.JOIN_CHAT_RESPONSE: {
+    case types.JOIN_CHAT_RESPONSE: {
       return immutableState
         .setIn(['users'], action.payload.users)
         .setIn(['waitingForResponse'], false)
         .toJS();
     }
-    case actions.SEND_MESSAGE: {
+    case types.SEND_MESSAGE: {
       return immutableState.updateIn(['messages'], messages => {
         return messages.push({
           user: state.username,
@@ -25,12 +25,12 @@ function chat(state = {}, action) {
         });
       }).toJS();
     }
-    case actions.NEW_MESSAGE: {
+    case types.NEW_MESSAGE: {
       return immutableState.updateIn(['messages'], messages => {
         return messages.push(action.payload);
       }).toJS();
     }
-    case actions.USER_JOINED: {
+    case types.USER_JOINED: {
       const name = action.payload;
       return immutableState.updateIn(['users'], users => {
         return users.set(name, name);
@@ -40,7 +40,7 @@ function chat(state = {}, action) {
         });
       }).toJS();
     }
-    case actions.USER_LEFT: {
+    case types.USER_LEFT: {
       const name = action.payload;
       return immutableState.updateIn(['users'], users => {
         return users.delete(name);
