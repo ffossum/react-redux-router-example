@@ -24,8 +24,7 @@ class ChatMessages extends React.Component {
               if (msg.user) {
                 return (
                   <div key={index} className="chat-message">
-                    <span>{msg.user}: </span>
-                    <span>{msg.text}</span>
+                    {msg.user}: {msg.text}
                   </div>
                 );
               } else {
