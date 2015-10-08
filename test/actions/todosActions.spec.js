@@ -1,6 +1,6 @@
 import {expect} from 'chai';
 import * as types from '../../src/constants/ActionTypes';
-import * as actions from '../../src/actions/todos';
+import * as actions from '../../src/actions/todosActions';
 
 describe('todo actions', () => {
   it('addTodo should create ADD_TODO action', () => {
