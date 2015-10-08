@@ -1,10 +1,10 @@
-@import './colors';
+@import './variables';
 
 .pure-menu {
-  background-color: $dark;
+  background-color: $menu-bg;
   .pure-menu-list {
     .pure-menu-heading {
-      color: white;
+      color: $menu-heading-text;
       &:hover,
       &:focus {
         background-color: inherit;
@@ -12,16 +12,16 @@
     }
     .pure-menu-item {
       .pure-menu-link {
-        color: $gray;
+        color: $menu-item-text;
         &:hover,
         &:focus {
-          background-color: $dark-gray;
+          background-color: $menu-item-hover-bg;
         }
       }
       &.pure-menu-selected {
-        background-color: $blue;
+        background-color: $menu-selected-bg;
         .pure-menu-link {
-          color: white;
+          color: $menu-selected-text;
           &:hover,
           &:focus {
             background-color: inherit;
