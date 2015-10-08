@@ -1,0 +1,33 @@
+@import './colors';
+
+.pure-menu {
+  background-color: $dark;
+  .pure-menu-list {
+    .pure-menu-heading {
+      color: white;
+      &:hover,
+      &:focus {
+        background-color: inherit;
+      }
+    }
+    .pure-menu-item {
+      .pure-menu-link {
+        color: $gray;
+        &:hover,
+        &:focus {
+          background-color: $dark-gray;
+        }
+      }
+      &.pure-menu-selected {
+        background-color: $blue;
+        .pure-menu-link {
+          color: white;
+          &:hover,
+          &:focus {
+            background-color: inherit;
+          }
+        }
+      }
+    }
+  }
+}
