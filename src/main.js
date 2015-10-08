@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
 import FrontPage from './components/FrontPage';
-import Chat from './components/Chat';
+import Chat from './components/chat/Chat';
 import Todos from './components/todos/App';
 import Bmi from './components/bmi/Bmi';
 import BmiReactive from './components/bmi/BmiReactive';

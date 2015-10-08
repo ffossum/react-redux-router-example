@@ -1,13 +1,13 @@
 import React from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import * as chatActions from '../actions/chatActions';
+import * as chatActions from '../../actions/chatActions';
 import ChatLogin from './ChatLogin';
 import ChatMessages from './ChatMessages';
 import ChatUsers from './ChatUsers';
 import ChatControls from './ChatControls';
 
-import '../stylesheets/chat.scss';
+import '../../stylesheets/chat.scss';
 
 class Chat extends React.Component {
   constructor(props) {
