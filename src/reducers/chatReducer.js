@@ -1,7 +1,13 @@
 import Immutable from 'immutable';
 import * as types from '../constants/ActionTypes';
 
-function chat(state = {}, action) {
+const initialState = {
+  users: {},
+  messages: [],
+  waitingForResponse: false
+};
+
+export default function chat(state = initialState, action) {
   const immutableState = Immutable.fromJS(state);
 
   switch (action.type) {
@@ -50,9 +56,6 @@ function chat(state = {}, action) {
         });
       }).toJS();
     }
+    default: return state;
   }
-
-  return state;
 }
-
-export default chat;

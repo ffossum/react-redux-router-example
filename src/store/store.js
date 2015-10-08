@@ -6,14 +6,6 @@ import chat from './chatMiddleware';
 import * as chatListeners from './chatListeners';
 import socket from './socket';
 
-const initialState = {
-  chat: {
-    users: {},
-    messages: [],
-    waitingForResponse: false
-  }
-};
-
 let storeEnhancers = [
   reduxReactRouter({
     createHistory
@@ -33,7 +25,7 @@ if (__DEVELOPMENT__) {
 
 const finalCreateStore = compose(...storeEnhancers)(createStore);
 
-const store = finalCreateStore(reducer, initialState);
+const store = finalCreateStore(reducer);
 export default store;
 
 if (module.hot) {
