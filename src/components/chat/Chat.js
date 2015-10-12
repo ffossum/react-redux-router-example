@@ -32,12 +32,13 @@ class Chat extends React.Component {
   render() {
     if (!this.props.loggedIn) {
       return (
-        <ChatLogin onSubmit={this.enterChat} errors={this.props.errors} />
+        <div className="chat-container">
+          <ChatLogin
+            onSubmit={this.enterChat}
+            errors={this.props.errors}
+            waitingForResponse={this.props.waitingForResponse} />
+        </div>
       );
-    }
-
-    if (this.props.waitingForResponse) {
-      return <div>Entering ...</div>;
     }
 
     const {users, messages} = this.props;

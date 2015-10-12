@@ -23,6 +23,7 @@ export default function chat(state = initialState, action) {
     case types.JOIN_CHAT_RESPONSE: {
       if (action.error) {
         return immutableState
+          .set('waitingForResponse', false)
           .updateIn(['errors'], errors => {
             return errors.push(action.error);
           }).toJS();
