@@ -1,19 +1,18 @@
-import {login, newMessage, userJoined, userLeft} from '../actions/chatActions';
+import {login, usernameTaken, newMessage, userJoined, userLeft} from '../actions/chatActions';
+
+const actions = {
+  'login': data => login(data),
+  'username taken': () => usernameTaken(),
+  'new message': data => newMessage(data),
+  'user joined': data => userJoined(data.username),
+  'user left': data => userLeft(data.username)
+};
 
 export function addAll(socket, store) {
-  socket.on('login', data => {
-    store.dispatch(login(data));
-  });
-
-  socket.on('new message', data => {
-    store.dispatch(newMessage(data));
-  });
-
-  socket.on('user joined', data => {
-    store.dispatch(userJoined(data.username));
-  });
-
-  socket.on('user left', data => {
-    store.dispatch(userLeft(data.username));
+  Object.keys(actions).forEach(key => {
+    let action = actions[key];
+    socket.on(key, data => {
+      store.dispatch(action(data));
+    });
   });
 }
