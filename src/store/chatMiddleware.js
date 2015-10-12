@@ -1,4 +1,4 @@
-import { JOIN_CHAT_REQUEST, SEND_MESSAGE } from '../constants/ActionTypes';
+import {JOIN_CHAT_REQUEST, SEND_MESSAGE} from '../constants/ActionTypes';
 
 export default socket => store => next => action => {
   if (action.meta && action.meta.remote) {

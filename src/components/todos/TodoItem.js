@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, {Component, PropTypes} from 'react';
 import classnames from 'classnames';
 import TodoTextInput from './TodoTextInput';
 
@@ -11,7 +11,7 @@ class TodoItem extends Component {
   }
 
   handleDoubleClick() {
-    this.setState({ editing: true });
+    this.setState({editing: true});
   }
 
   handleSave(id, text) {
@@ -20,7 +20,7 @@ class TodoItem extends Component {
     } else {
       this.props.editTodo(id, text);
     }
-    this.setState({ editing: false });
+    this.setState({editing: false});
   }
 
   render() {

@@ -23,14 +23,14 @@ export default function todos(state = initialState, action) {
   case types.EDIT_TODO:
     return state.map(todo =>
       todo.id === action.id ?
-        Object.assign({}, todo, { text: action.text }) :
+        Object.assign({}, todo, {text: action.text}) :
         todo
     );
 
   case types.COMPLETE_TODO:
     return state.map(todo =>
       todo.id === action.id ?
-        Object.assign({}, todo, { completed: !todo.completed }) :
+        Object.assign({}, todo, {completed: !todo.completed}) :
         todo
     );
 

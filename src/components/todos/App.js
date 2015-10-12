@@ -1,6 +1,6 @@
-import React, { Component, PropTypes } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+import React, {Component, PropTypes} from 'react';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
 import Header from './Header';
 import MainSection from './MainSection';
 import * as TodoActions from '../../actions/todosActions';
@@ -9,7 +9,7 @@ import '../../stylesheets/todos.scss';
 
 class App extends Component {
   render() {
-    const { todos, dispatch } = this.props;
+    const {todos, dispatch} = this.props;
     const actions = bindActionCreators(TodoActions, dispatch);
 
     return (

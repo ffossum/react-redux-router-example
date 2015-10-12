@@ -1,5 +1,5 @@
 import socket from './socket';
-import { login, newMessage, userJoined, userLeft } from '../actions/chatActions';
+import {login, newMessage, userJoined, userLeft} from '../actions/chatActions';
 
 export function addAll(store) {
   socket.on('login', data => {

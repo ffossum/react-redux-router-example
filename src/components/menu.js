@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import {Link} from 'react-router';
 
 import '../stylesheets/menu.scss';
 
@@ -11,7 +11,7 @@ class Menu extends React.Component {
       {href: '/about', text: 'About'}
     ];
 
-    const { activePath } = this.props;
+    const {activePath} = this.props;
     const menuItemClass = 'pure-menu-item';
     const selectedItemClass = menuItemClass + ' pure-menu-selected';
 

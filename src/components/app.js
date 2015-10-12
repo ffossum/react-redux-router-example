@@ -3,7 +3,7 @@ import Menu from './Menu';
 
 class App extends React.Component {
   render() {
-    const { pathname } = this.props.location;
+    const {pathname} = this.props.location;
 
     return (
       <div className="main-container">

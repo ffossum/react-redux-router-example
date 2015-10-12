@@ -15,7 +15,7 @@ class ChatMessages extends React.Component {
     }
   }
   render() {
-    const { messages } = this.props;
+    const {messages} = this.props;
     return (
       <div className="chat-messages-container">
         <div className="chat-messages" ref="chatMessages">

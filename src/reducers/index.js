@@ -1,5 +1,5 @@
-import { combineReducers } from 'redux';
-import { routerStateReducer } from 'redux-router';
+import {combineReducers} from 'redux';
+import {routerStateReducer} from 'redux-router';
 import chat from './chatReducer';
 import todos from './todosReducer';
 

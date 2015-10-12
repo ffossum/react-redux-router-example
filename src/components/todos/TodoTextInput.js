@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, {Component, PropTypes} from 'react';
 import classnames from 'classnames';
 
 class TodoTextInput extends Component {
@@ -14,13 +14,13 @@ class TodoTextInput extends Component {
     if (e.which === 13) {
       this.props.onSave(text);
       if (this.props.newTodo) {
-        this.setState({ text: '' });
+        this.setState({text: ''});
       }
     }
   }
 
   handleChange(e) {
-    this.setState({ text: e.target.value });
+    this.setState({text: e.target.value});
   }
 
   handleBlur(e) {

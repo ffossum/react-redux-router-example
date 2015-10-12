@@ -1,7 +1,7 @@
-import { compose, createStore, applyMiddleware } from 'redux';
+import {compose, createStore, applyMiddleware} from 'redux';
 import reducer from '../reducers';
 import createHistory from 'history/lib/createBrowserHistory';
-import { reduxReactRouter } from 'redux-router';
+import {reduxReactRouter} from 'redux-router';
 import chat from './chatMiddleware';
 import * as chatListeners from './chatListeners';
 import socket from './socket';
@@ -16,7 +16,7 @@ let storeEnhancers = [
 ];
 
 if (__DEVELOPMENT__) {
-  const { devTools, persistState } = require('redux-devtools');
+  const {devTools, persistState} = require('redux-devtools');
   storeEnhancers = [...storeEnhancers,
     devTools(),
     persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))

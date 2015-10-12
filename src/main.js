@@ -5,9 +5,9 @@ import FrontPage from './components/FrontPage';
 import Chat from './components/chat/Chat';
 import Todos from './components/todos/App';
 import About from './components/About';
-import { Provider } from 'react-redux';
-import { Route, IndexRoute } from 'react-router';
-import { ReduxRouter } from 'redux-router';
+import {Provider} from 'react-redux';
+import {Route, IndexRoute} from 'react-router';
+import {ReduxRouter} from 'redux-router';
 import store from './store/store';
 
 import './stylesheets/main.scss';
@@ -27,7 +27,7 @@ ReactDOM.render((
     {
       () => {
         if (__DEVELOPMENT__) {
-          const { DevTools, DebugPanel, LogMonitor } = require('redux-devtools/lib/react');
+          const {DevTools, DebugPanel, LogMonitor} = require('redux-devtools/lib/react');
           return (
             <DebugPanel top right bottom>
               <DevTools store={store} monitor={LogMonitor} />
