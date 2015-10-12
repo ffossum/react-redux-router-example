@@ -1,7 +1,6 @@
-import socket from './socket';
 import {login, newMessage, userJoined, userLeft} from '../actions/chatActions';
 
-export function addAll(store) {
+export function addAll(socket, store) {
   socket.on('login', data => {
     store.dispatch(login(data));
   });

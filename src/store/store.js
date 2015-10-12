@@ -36,4 +36,4 @@ if (module.hot) {
   });
 }
 
-chatListeners.addAll(store);
+chatListeners.addAll(socket, store);
