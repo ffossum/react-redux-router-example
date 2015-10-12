@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router';
+import classnames from 'classnames';
 
 import '../stylesheets/menu.scss';
 
@@ -12,17 +13,17 @@ class Menu extends React.Component {
     ];
 
     const {activePath} = this.props;
-    const menuItemClass = 'pure-menu-item';
-    const selectedItemClass = menuItemClass + ' pure-menu-selected';
 
     return (
       <nav className="pure-menu pure-menu-horizontal">
         <ul className="pure-menu-list">
           <Link className="pure-menu-heading pure-menu-link" to="/">Front page</Link>
           {links.map(link => {
-            const selected = activePath === link.href;
             return (
-              <li className={selected ? selectedItemClass : menuItemClass} key={link.href}>
+              <li className={classnames({
+                  'pure-menu-item': true,
+                  'pure-menu-selected': activePath === link.href
+                })} key={link.href}>
                 <Link className="pure-menu-link" to={link.href}>{link.text}</Link>
               </li>
             );
