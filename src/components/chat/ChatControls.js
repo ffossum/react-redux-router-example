@@ -23,11 +23,9 @@ class ChatControls extends React.Component {
   render() {
     return (
       <form onSubmit={this.sendMessage} className="pure-form chat-controls">
-        <fieldset>
-            <input type="text" placeholder="Say something..."
-              value={this.state.message}
-              onChange={this.messageChanged} />
-        </fieldset>
+        <input type="text" placeholder="Say something..."
+          value={this.state.message}
+          onChange={this.messageChanged} />
       </form>
     );
   }
