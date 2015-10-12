@@ -17,6 +17,13 @@ export function login(payload) {
   };
 }
 
+export function usernameTaken() {
+  return {
+    type: types.JOIN_CHAT_RESPONSE,
+    error: 'username taken'
+  };
+}
+
 export function sendMessage(text) {
   return {
     type: types.SEND_MESSAGE,

@@ -2,9 +2,11 @@ import Immutable from 'immutable';
 import * as types from '../constants/ActionTypes';
 
 const initialState = {
+  loggedIn: false,
   users: {},
   messages: [],
-  waitingForResponse: false
+  waitingForResponse: false,
+  errors: []
 };
 
 export default function chat(state = initialState, action) {
@@ -14,14 +16,25 @@ export default function chat(state = initialState, action) {
     case types.JOIN_CHAT_REQUEST: {
       return immutableState
         .setIn(['username'], action.payload)
+        .setIn(['errors'], [])
         .setIn(['waitingForResponse'], true)
         .toJS();
     }
     case types.JOIN_CHAT_RESPONSE: {
-      return immutableState
-        .setIn(['users'], action.payload.users)
-        .setIn(['waitingForResponse'], false)
-        .toJS();
+      if (action.error) {
+        return immutableState
+          .updateIn(['errors'], errors => {
+            return errors.push(action.error);
+          }).toJS();
+
+      } else {
+        return immutableState
+          .setIn(['users'], action.payload.users)
+          .setIn(['loggedIn'], true)
+          .setIn(['waitingForResponse'], false)
+          .toJS();
+      }
+
     }
     case types.SEND_MESSAGE: {
       return immutableState.updateIn(['messages'], messages => {

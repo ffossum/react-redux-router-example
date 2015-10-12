@@ -4,28 +4,36 @@ import * as actions from '../../src/actions/chatActions';
 
 describe('chat reducer', () => {
   it('handles join chat request correctly', () => {
+
     const previousState = {
+      loggedIn: false,
       users: {},
-      messages: []
+      messages: [],
+      waitingForResponse: false,
+      errors: []
     };
 
     const action = actions.enterChat('Jack');
     const state = reducer(previousState, action);
 
     expect(state).to.deep.equal({
+      loggedIn: false,
       users: {},
       messages: [],
-      username: 'Jack',
-      waitingForResponse: true
+      waitingForResponse: true,
+      errors: [],
+      username: 'Jack'
     });
   });
 
   it('handles join chat successful response correctly', () => {
     const previousState = {
+      loggedIn: false,
       users: {},
       messages: [],
-      username: 'Jack',
-      waitingForResponse: true
+      waitingForResponse: true,
+      errors: [],
+      username: 'Jack'
     };
 
     const action = actions.login({
@@ -34,10 +42,12 @@ describe('chat reducer', () => {
     const state = reducer(previousState, action);
 
     expect(state).to.deep.equal({
+      loggedIn: true,
       users: {'Jack': 'Jack'},
       messages: [],
-      username: 'Jack',
-      waitingForResponse: false
+      waitingForResponse: false,
+      errors: [],
+      username: 'Jack'
     });
   });
 });

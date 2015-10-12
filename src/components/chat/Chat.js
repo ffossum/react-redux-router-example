@@ -30,9 +30,9 @@ class Chat extends React.Component {
     sendMessage(message);
   }
   render() {
-    if (!this.props.username) {
+    if (!this.props.loggedIn) {
       return (
-        <ChatLogin onSubmit={this.enterChat} />
+        <ChatLogin onSubmit={this.enterChat} errors={this.props.errors} />
       );
     }
 
