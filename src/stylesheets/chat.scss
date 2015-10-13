@@ -1,7 +1,11 @@
 .chat-container {
-  height: 20rem;
+  height: 30rem;
   width: 50%;
-  min-width: 35rem;
+  min-width: 30rem;
+
+  .chat-login {
+    width: 30rem;
+  }
 
   .chat-messages-container {
     float: left;
@@ -33,9 +37,5 @@
     input{
       width: 100%;
     }
-  }
-
-  .spinner {
-    margin-left: 0.5rem;
   }
 }

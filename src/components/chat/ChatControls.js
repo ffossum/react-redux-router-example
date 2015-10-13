@@ -1,4 +1,5 @@
 import React from 'react';
+import {Input} from 'react-bootstrap';
 
 class ChatControls extends React.Component {
   constructor(props) {
@@ -22,8 +23,11 @@ class ChatControls extends React.Component {
   }
   render() {
     return (
-      <form onSubmit={this.sendMessage} className="pure-form chat-controls">
-        <input type="text" placeholder="Say something..."
+      <form onSubmit={this.sendMessage} className="chat-controls">
+        <Input
+          autoFocus
+          type="text"
+          placeholder="Say something..."
           value={this.state.message}
           onChange={this.messageChanged} />
       </form>

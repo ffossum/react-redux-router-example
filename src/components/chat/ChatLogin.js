@@ -1,7 +1,5 @@
 import React from 'react';
-import classnames from 'classnames';
-
-import '../../stylesheets/spinner.scss';
+import {Input, Button} from 'react-bootstrap';
 
 class ChatLogin extends React.Component {
   constructor(props) {
@@ -30,26 +28,25 @@ class ChatLogin extends React.Component {
 
     const {errors} = this.props;
     const usernameTaken = errors.some(value => value === 'username taken');
+    const isWaiting = this.props.waitingForResponse;
+
     return (
-      <form onSubmit={this.onSubmit} className="pure-form pure-form-aligned">
-        <div className="pure-control-group">
-          <label htmlFor="username-input">Username:</label>
-          <input type="text" className={classnames({'has-error': usernameTaken})} id="username-input"
-            placeholder="Username"
-            value={this.state.username}
-            onChange={this.usernameChanged} />
-            {
-              usernameTaken ?
-                <small> Username already taken.</small> : null
-            }
-        </div>
-        <div className="pure-controls">
-          <button className="pure-button">Join chat</button>
-          {
-            this.props.waitingForResponse ?
-              <div className="spinner"></div> : null
-          }
-        </div>
+      <form className="chat-login" onSubmit={this.onSubmit}>
+        <Input
+          type="text"
+          label="Username:"
+          placeholder="Username"
+          readOnly={isWaiting}
+          help={usernameTaken ? 'Username already taken.' : ''}
+          bsStyle={usernameTaken ? 'error' : ''}
+          onChange={this.usernameChanged} />
+
+        <Button
+          type="submit"
+          bsStyle="primary"
+          disabled={isWaiting}>
+          {isWaiting ? 'Joining...' : 'Join chat'}
+        </Button>
       </form>
     );
   }

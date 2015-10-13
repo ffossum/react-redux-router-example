@@ -6,7 +6,7 @@ class App extends React.Component {
     const {pathname} = this.props.location;
 
     return (
-      <div className="main-container">
+      <div>
         <Menu activePath={pathname} />
         <div className="content">
           {this.props.children}
