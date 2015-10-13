@@ -2,8 +2,12 @@ var express = require('express');
 var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
+var favicon = require('serve-favicon');
+var path = require('path');
 
 app.use(express.static('public'));
+app.use(favicon(path.join(__dirname,'public','static','favicon.ico')));
+
 app.get('*', (req, res) => {
   res.render('index.jade', {
     env: process.env.NODE_ENV

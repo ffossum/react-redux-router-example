@@ -10,4 +10,5 @@ node_modules/
 .idea/
 *.iml
 
-public/
+public/static/*
+!public/static/favicon.ico
