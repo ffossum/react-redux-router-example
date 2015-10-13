@@ -8,7 +8,7 @@ class App extends React.Component {
     return (
       <div>
         <Menu activePath={pathname} />
-        <div className="content">
+        <div className="container">
           {this.props.children}
         </div>
       </div>
