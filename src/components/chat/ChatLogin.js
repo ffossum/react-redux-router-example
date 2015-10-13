@@ -38,7 +38,7 @@ class ChatLogin extends React.Component {
           placeholder="Username"
           readOnly={isWaiting}
           help={usernameTaken ? 'Username already taken.' : ''}
-          bsStyle={usernameTaken ? 'error' : ''}
+          bsStyle={usernameTaken ? 'error' : null}
           onChange={this.usernameChanged} />
 
         <Button
