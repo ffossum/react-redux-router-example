@@ -14,8 +14,10 @@ class App extends Component {
 
     return (
       <div className="todomvc-container">
-        <Header addTodo={actions.addTodo} />
-        <MainSection todos={todos} actions={actions} />
+        <div className="todoapp">
+          <Header addTodo={actions.addTodo} />
+          <MainSection todos={todos} actions={actions} />
+        </div>
       </div>
     );
   }
