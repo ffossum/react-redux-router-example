@@ -8,13 +8,14 @@ class Menu extends React.Component {
 
     const links = [
       {href: '/chat', text: 'Chat'},
+      {href: '/counter', text: 'Counter'},
       {href: '/todos', text: 'Todos'},
       {href: '/about', text: 'About'}
     ];
 
     return (
       <Navbar>
-        <NavBrand><Link to="/">Front page</Link></NavBrand>
+        <NavBrand><Link to="/">React Redux Example</Link></NavBrand>
         <Nav>
           {
             links.map(link => {

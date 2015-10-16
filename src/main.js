@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './components/App';
 import FrontPage from './components/FrontPage';
 import Chat from './components/chat/Chat';
+import Counter from './components/counter/App';
 import Todos from './components/todos/App';
 import About from './components/About';
 import {Provider} from 'react-redux';
@@ -19,6 +20,7 @@ ReactDOM.render((
         <Route path="/" component={App}>
           <IndexRoute component={FrontPage} />
           <Route path="chat" component={Chat} />
+          <Route path="counter" component={Counter} />
           <Route path="todos" component={Todos} />
           <Route path="about" component={About} />
         </Route>
