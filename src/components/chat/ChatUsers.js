@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 
 class ChatUsers extends React.Component {
   render() {
@@ -19,5 +19,9 @@ class ChatUsers extends React.Component {
     );
   }
 }
+
+ChatUsers.propTypes = {
+  users: PropTypes.object.isRequired
+};
 
 export default ChatUsers;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import {Input, Button} from 'react-bootstrap';
 
 class ChatLogin extends React.Component {
@@ -51,5 +51,11 @@ class ChatLogin extends React.Component {
     );
   }
 }
+
+ChatLogin.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+  waitingForResponse: PropTypes.bool,
+  errors: PropTypes.array
+};
 
 export default ChatLogin;

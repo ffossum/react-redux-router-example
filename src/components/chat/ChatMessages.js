@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 
 class ChatMessages extends React.Component {
   componentWillUpdate() {
@@ -41,5 +41,9 @@ class ChatMessages extends React.Component {
     );
   }
 }
+
+ChatMessages.propTypes = {
+  messages: PropTypes.array.isRequired
+};
 
 export default ChatMessages;

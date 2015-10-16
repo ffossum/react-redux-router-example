@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import {Input} from 'react-bootstrap';
 
 class ChatControls extends React.Component {
@@ -34,5 +34,9 @@ class ChatControls extends React.Component {
     );
   }
 }
+
+ChatControls.propTypes = {
+  onSubmit: PropTypes.func.isRequired
+};
 
 export default ChatControls;

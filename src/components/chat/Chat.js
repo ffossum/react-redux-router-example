@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as chatActions from '../../actions/chatActions';
@@ -51,6 +51,16 @@ class Chat extends React.Component {
     );
   }
 }
+
+Chat.propTypes = {
+  enterChat: PropTypes.func.isRequired,
+  sendMessage: PropTypes.func.isRequired,
+  loggedIn: PropTypes.bool.isRequired,
+  waitingForResponse: PropTypes.bool,
+  errors: PropTypes.array,
+  messages: PropTypes.array,
+  users: PropTypes.object
+};
 
 export default connect(
   (state) => { return state.chat; },
