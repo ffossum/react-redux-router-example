@@ -14,7 +14,7 @@ class Menu extends React.Component {
     ];
 
     return (
-      <Navbar>
+      <Navbar inverse>
         <NavBrand><Link to="/">React Redux Example</Link></NavBrand>
         <Nav>
           {
