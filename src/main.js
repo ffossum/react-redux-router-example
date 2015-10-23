@@ -6,6 +6,7 @@ import Chat from './components/chat/Chat';
 import Counter from './components/counter/App';
 import Todos from './components/todos/App';
 import About from './components/About';
+import NotFound from './components/NotFound';
 import {Provider} from 'react-redux';
 import {Route, IndexRoute} from 'react-router';
 import {ReduxRouter} from 'redux-router';
@@ -23,6 +24,7 @@ ReactDOM.render((
           <Route path="counter" component={Counter} />
           <Route path="todos" component={Todos} />
           <Route path="about" component={About} />
+          <Route path="*" component={NotFound} />
         </Route>
       </ReduxRouter>
     </Provider>
